@@ -1,5 +1,3 @@
-{{--  --}}
-
     <form method="POST" action="/">
       
         @csrf
