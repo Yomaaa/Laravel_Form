@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Contact;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/success', function(){
+    return view('success');
+});
+Route::post('/', function(){
+    $contact = new Contact();
+    $contact->name = request('name');
+    $contact->email = request('email');
+    $contact->save();
+
+     return redirect('success');
+});
+
+
